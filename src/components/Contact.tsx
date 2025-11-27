@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Mail, Linkedin, Send } from 'lucide-react';
+import { MessageCircle, Mail, Linkedin, Send, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -7,13 +7,42 @@ export default function Contact() {
     email: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          // Your specific access key is now here:
+          access_key: "46b852f5-8818-4c19-a754-af4ced568c39", 
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Thank you! Your message has been sent successfully.");
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Error sending message. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -39,6 +68,7 @@ export default function Contact() {
       color: 'from-blue-600 to-blue-700'
     }
   ];
+
   return (
     <section className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
@@ -135,12 +165,22 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="group relative w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg overflow-hidden hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all"
+                  disabled={isSubmitting}
+                  className="group relative w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg overflow-hidden hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <span className="relative flex items-center justify-center gap-2 text-white">
-                    <Send size={20} />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={20} className="animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        Send Message
+                      </>
+                    )}
                   </span>
                 </button>
               </form>
