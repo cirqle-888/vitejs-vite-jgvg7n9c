@@ -20,8 +20,8 @@ export default function Contact() {
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      value: '+1 234 567 8900',
-      link: 'https://wa.me/1234567890',
+      value: '+91 7736 234377',
+      link: 'https://wa.me/+917736234377',
       color: 'from-green-500 to-green-600'
     },
     {
