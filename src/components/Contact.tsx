@@ -27,19 +27,18 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'umarul.farooq@email.com',
-      link: 'mailto:umarul.farooq@email.com',
+      value: 'umarulfarooqvv@gmail.com',
+      link: 'mailto:umarulfarooq@gmail.com',
       color: 'from-red-500 to-red-600'
     },
     {
       icon: Linkedin,
       title: 'LinkedIn',
       value: 'linkedin.com/in/umarulfarooq',
-      link: 'https://linkedin.com/in/umarulfarooq',
+      link: 'https://www.linkedin.com/in/farooqvv/',
       color: 'from-blue-600 to-blue-700'
     }
   ];
-
   return (
     <section className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
