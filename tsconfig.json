@@ -12,11 +12,11 @@
     "noEmit": true,
     "jsx": "react-jsx",
     
-    /* Strictness - Relaxed for deployment */
+    /* Relaxed rules for deployment */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noImplicitAny": false, 
+    "noImplicitAny": false,
     
     "baseUrl": ".",
     "paths": {
