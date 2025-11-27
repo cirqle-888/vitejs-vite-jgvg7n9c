@@ -57,7 +57,7 @@ export default function Contact() {
       icon: Mail,
       title: 'Email',
       value: 'umarulfarooqvv@gmail.com',
-      link: 'mailto:umarulfarooq@gmail.com',
+      link: 'mailto:umarulfarooqvv@gmail.com',
       color: 'from-red-500 to-red-600'
     },
     {
