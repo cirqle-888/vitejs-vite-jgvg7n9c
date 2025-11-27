@@ -70,7 +70,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="py-32 px-6">
+    <section id="contact" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <div className="inline-block text-cyan-400 text-sm tracking-[0.3em] mb-4">CONTACT</div>

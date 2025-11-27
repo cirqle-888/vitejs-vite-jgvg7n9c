@@ -3,6 +3,15 @@ import { Download, Mail, ChevronDown } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export default function Hero() {
+  
+  // This function finds the contact section and scrolls to it smoothly
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-7xl mx-auto w-full">
@@ -47,7 +56,11 @@ export default function Hero() {
                 </span>
               </button>
               
-              <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-lg flex items-center gap-2 justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all text-white">
+              {/* UPDATED BUTTON WITH ONCLICK EVENT */}
+              <button 
+                onClick={scrollToContact}
+                className="px-8 py-4 bg-white/5 border border-white/10 rounded-lg flex items-center gap-2 justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all text-white cursor-pointer"
+              >
                 <Mail size={20} />
                 Contact Me
               </button>
@@ -56,8 +69,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600 animate-bounce">
+      {/* Scroll indicator - Also updated to scroll down */}
+      <div 
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600 animate-bounce cursor-pointer"
+      >
         <span className="text-sm">Scroll to explore</span>
         <ChevronDown size={20} />
       </div>
