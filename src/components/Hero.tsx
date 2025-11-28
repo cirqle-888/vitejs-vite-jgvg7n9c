@@ -21,7 +21,7 @@ export default function Hero() {
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden ring-2 ring-cyan-500/50">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                src="src/assets/IMG_4023.jpeg"
                 alt="Umarul Farooq V.V"
                 className="w-full h-full object-cover"
               />
