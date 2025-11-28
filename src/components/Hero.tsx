@@ -59,7 +59,7 @@ export default function Hero() {
               
               {/* PDF FIX: Linking to public folder */}
               <a 
-                href="/resume.pdf" 
+                href="/vite.svgresume.pdf" 
                 download="Umarul_Farooq_CV.pdf"
                 target="_blank" 
                 rel="noopener noreferrer"
