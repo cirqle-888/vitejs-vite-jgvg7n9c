@@ -58,7 +58,7 @@ export default function Hero() {
               {/* FIX 3: Changed to anchor tag for actual download */}
               {/* Ensure your CV file is inside the 'public' folder */}
               <a 
-                href="/resume.pdf" 
+                href="src/assets/Umarul Farooq V V.pdf" 
                 download
                 className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg overflow-hidden hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all flex items-center justify-center text-white cursor-pointer"
               >
